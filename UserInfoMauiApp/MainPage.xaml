@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:courseworkmauiapp="clr-namespace:UserInfoMauiApp"
+             x:Class="UserInfoMauiApp.MainPage"
+             Background="LightGray">
+    <ContentPage.BindingContext>
+        <courseworkmauiapp:RegistrationViewModel/>
+    </ContentPage.BindingContext>
+        <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="BackgroundColor" Value="LightGray" />
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,0,0,10" />
+            <Setter Property="HorizontalOptions" Value="Start" /> 
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#3498DB" />
+            <Setter Property="CornerRadius" Value="10" /> 
+            <Setter Property="Margin" Value="0,10,0,0" />
+            <Setter Property="WidthRequest" Value="250"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        </Style>
+        
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout 
+            Padding="20"
+            VerticalOptions="Center" >
+            <Frame 
+                CornerRadius="20"
+                Padding="20"
+                BackgroundColor="White"
+                HasShadow="True">
+                 <StackLayout>
+                   <Entry Placeholder="Логин" Text="{Binding Login}"/>
+                   <Entry Placeholder="Пароль" Text="{Binding Password}" IsPassword="True"/>
+                    <HorizontalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="10">
+                         <Button Text="Войти" Command="{Binding EnterCommand}" Clicked="OpenUserInfoPage"/>
+                         <Button Text="Регистрация" Clicked="OpenRegistrationPage"/>
+                    </HorizontalStackLayout>
+                </StackLayout>
+           </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
