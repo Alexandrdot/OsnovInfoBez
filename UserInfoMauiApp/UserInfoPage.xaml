@@ -73,6 +73,7 @@
           <Label Text="{Binding User.Birthday,StringFormat=' День рождения: {0:d}'}"/>
         </VerticalStackLayout>
         </Frame>
+        <Button Command="{Binding CancelCommand}" Text="Назад"/>
     </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -12,6 +12,7 @@ namespace UserInfoMauiApp
 		public ICommand SaveCommand { get; set; }
         public ICommand EnterCommand { get; set; }
         public ICommand IsEnabledSaveCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
         public ObservableCollection<User> Users { get; set; } = new();
         string password = "";
         User user = null;
@@ -28,6 +29,7 @@ namespace UserInfoMauiApp
 		{
             SaveCommand = new Command(SaveInfoAboutUser);
 			EnterCommand = new Command(EnterProgramm);
+            CancelCommand = new Command(Cancel);
 		}
 		public async void SaveInfoAboutUser()
 		{
@@ -72,7 +74,12 @@ namespace UserInfoMauiApp
             await App.Current.MainPage.DisplayAlert("Уведомление", "Данные сохранены", "Ок");
             await App.Current.MainPage.Navigation.PopAsync();
 		}
-       
+        async void Cancel()
+        {
+            Clear();
+            User = null;
+            await App.Current.MainPage.Navigation.PopAsync();
+        }
         async void EnterProgramm()
 		{
             //if (Users.Count != 0)

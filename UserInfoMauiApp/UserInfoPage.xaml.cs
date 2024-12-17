@@ -9,4 +9,6 @@ public partial class UserInfoPage : ContentPage
         _registrationViewModel = registrationViewModel;
         BindingContext = _registrationViewModel;
     }
+    
+    
 }
